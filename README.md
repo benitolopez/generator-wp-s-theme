@@ -12,9 +12,9 @@ npm install -g yo gulp
 
 ##### Install `generator-wp-s-theme`:
 
-```
-npm install -g generator-wp-s-theme
 ```bash
+npm install -g generator-wp-s-theme
+```
 
 ### Run
 
