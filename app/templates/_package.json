@@ -1,0 +1,6 @@
+{
+  "name": "<%= package_name %>",
+  "version": "1.0.0",
+  "description": "<%= package_description %>",
+  "author": "<%= package_author %>"
+}

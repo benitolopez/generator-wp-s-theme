@@ -1,0 +1,32 @@
+{
+  "name": "generator-wp-s-theme",
+  "version": "1.0.0",
+  "description": "Yeoman generator for a WordPress starter theme (using Underscores) with Gulp and other good stuff",
+  "files": [
+    "app"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/benitolopez/generator-wp-s-theme.git"
+  },
+  "keywords": [
+    "yeoman-generator",
+    "wordpress",
+    "theme",
+    "underscores"
+  ],
+  "author": "Benito Lopez",
+  "license": "MIT",
+  "dependencies": {
+    "chalk": "^1.1.1",
+    "copy": "^0.1.3",
+    "del": "^2.2.0",
+    "download": "^4.4.3",
+    "download-status": "^2.2.1",
+    "lodash": "^4.3.0",
+    "path": "^0.12.7",
+    "walk": "^2.3.9",
+    "yeoman-generator": "^0.22.5",
+    "yosay": "^1.1.0"
+  }
+}
