@@ -35,7 +35,7 @@ module.exports = generators.Base.extend({
           type: 'input',
           name: 'themeuri',
           message: 'Theme URI',
-          default: 'Theme URI'
+          default: 'https://example.com/themeuri/'
         },
         {
           type: 'input',
@@ -97,7 +97,6 @@ module.exports = generators.Base.extend({
         this.props = props;
         this.props.prefix = _.snakeCase(this.props.themeslug) + '_';
         this.props.themeslug = _.kebabCase(this.props.themeslug);
-        // To access props later use this.props.someOption;
 
         done();
       }.bind(this));
@@ -318,28 +317,31 @@ module.exports = generators.Base.extend({
 
   install: {
     installPackages: function installPackages() {
-      this.log(chalk.yellow('\nInstalling required packages...'));
+      if (this.props.gulpsetup) {
+        this.log(chalk.yellow('\nInstalling required packages...'));
 
-      this.npmInstall(['gulp'], { 'saveDev': true });
-      this.npmInstall(['gulp-sass'], { 'saveDev': true });
-      this.npmInstall(['gulp-autoprefixer'], { 'saveDev': true });
-      this.npmInstall(['gulp-rename'], { 'saveDev': true });
-      this.npmInstall(['gulp-uglify'], { 'saveDev': true });
-      this.npmInstall(['jshint'], { 'saveDev': true });
-      this.npmInstall(['gulp-jshint'], { 'saveDev': true });
-      this.npmInstall(['jshint-stylish'], { 'saveDev': true });
-      this.npmInstall(['gulp-wp-pot'], { 'saveDev': true });
-      this.npmInstall(['gulp-sort'], { 'saveDev': true });
-      this.npmInstall(['gulp-group-css-media-queries'], { 'saveDev': true });
-      this.npmInstall(['del'], { 'saveDev': true });
-      this.npmInstall(['gulp-zip'], { 'saveDev': true });
-      this.npmInstall(['run-sequence'], { 'saveDev': true });
+        this.npmInstall(['gulp'], { 'saveDev': true });
+        this.npmInstall(['gulp-sass'], { 'saveDev': true });
+        this.npmInstall(['gulp-autoprefixer'], { 'saveDev': true });
+        this.npmInstall(['gulp-rename'], { 'saveDev': true });
+        this.npmInstall(['gulp-uglify'], { 'saveDev': true });
+        this.npmInstall(['jshint'], { 'saveDev': true });
+        this.npmInstall(['gulp-jshint'], { 'saveDev': true });
+        this.npmInstall(['jshint-stylish'], { 'saveDev': true });
+        this.npmInstall(['gulp-wp-pot'], { 'saveDev': true });
+        this.npmInstall(['gulp-sort'], { 'saveDev': true });
+        this.npmInstall(['gulp-group-css-media-queries'], { 'saveDev': true });
+        this.npmInstall(['del'], { 'saveDev': true });
+        this.npmInstall(['gulp-zip'], { 'saveDev': true });
+        this.npmInstall(['run-sequence'], { 'saveDev': true });
+      }
     }
   },
 
   end: {
     endMessage: function endMessage() {
       this.log(chalk.green('\nAll Done!!\n------------------------\n'));
+
       if (this.props.gulpsetup) {
         this.log('\nRun ' + chalk.green('gulp') + ' to start the development and ' + chalk.green('gulp build') + ' to create a zip file in ' + chalk.white('dist/' + this.props.themeslug + '.zip') + ' ready for production.');
       }
