@@ -1,6 +1,6 @@
 {
   "name": "generator-wp-s-theme",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "Yeoman generator for a WordPress starter theme (using Underscores) with Gulp and other good stuff",
   "files": [
     "app"
