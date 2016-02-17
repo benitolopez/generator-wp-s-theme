@@ -71,7 +71,7 @@ gulp.task('watch', function () {
   gulp.watch(js_files, ['lint']);
   gulp.watch(js_files, ['compress']);
   gulp.watch(['**/*.php'], ['makepot']);
-  gulp.watch('sass/**/*.scss');
+  gulp.watch('sass/**/*.scss', ['sass']);
 });
 
 gulp.task('build-clean', function() {
