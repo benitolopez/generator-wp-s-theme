@@ -321,6 +321,7 @@ module.exports = generators.Base.extend({
         this.log(chalk.yellow('\nInstalling required packages...'));
 
         this.npmInstall(['gulp'], { 'saveDev': true });
+        this.npmInstall(['gulp-livereload'], { 'saveDev': true });
         this.npmInstall(['gulp-sass'], { 'saveDev': true });
         this.npmInstall(['gulp-autoprefixer'], { 'saveDev': true });
         this.npmInstall(['gulp-rename'], { 'saveDev': true });

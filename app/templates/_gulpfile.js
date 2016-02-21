@@ -12,8 +12,9 @@ var sort         = require('gulp-sort');
 var gcmq         = require('gulp-group-css-media-queries');
 var del          = require('del');
 var zip          = require('gulp-zip');
-var js_files     = ['js/*.js', '!js/*.min.js', '!js/lib/**/*.js'];
+var livereload   = require('gulp-livereload');
 var runSequence  = require('run-sequence');
+var js_files     = ['js/*.js', '!js/*.min.js', '!js/lib/**/*.js'];
 
 var build_files = [
   '**',
@@ -37,7 +38,8 @@ gulp.task('sass', function () {
     .pipe(sass({outputStyle: 'expanded'}))
     .pipe(autoprefixer(['last 2 versions']))
     .pipe(gcmq())
-    .pipe(gulp.dest('.'));
+    .pipe(gulp.dest('.'))
+    .pipe(livereload());
 });
 
 gulp.task('lint', function() {
@@ -68,6 +70,8 @@ gulp.task('makepot', function () {
 });
 
 gulp.task('watch', function () {
+  livereload.listen();
+
   gulp.watch(js_files, ['lint']);
   gulp.watch(js_files, ['compress']);
   gulp.watch(['**/*.php'], ['makepot']);
